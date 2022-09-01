@@ -1,0 +1,5 @@
+package com.fourserve.service;
+
+public interface StudentService {
+
+}

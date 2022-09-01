@@ -1,0 +1,31 @@
+package com.fourserve.dao;
+
+import com.fourserve.dto.Student;
+
+public class StudentDaoImpl implements StudentDao {
+
+	@Override
+	public String add(Student student) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String search(String sid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String update(Student student) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(String sid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

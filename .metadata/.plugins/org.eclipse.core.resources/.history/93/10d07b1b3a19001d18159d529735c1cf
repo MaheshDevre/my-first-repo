@@ -1,0 +1,10 @@
+package SynchronizationDemo2;
+
+public class SynchronizationEx2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

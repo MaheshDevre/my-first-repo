@@ -1,0 +1,7 @@
+package com.fourserve.service;
+
+import com.fourserve.dao.StudentDao;
+
+public interface StudentServiceImpl extends StudentDao {
+
+}

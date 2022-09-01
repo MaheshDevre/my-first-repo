@@ -1,0 +1,32 @@
+package NagoorBabu;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class WordCountEx {
+
+	public static void main(String[] args) throws Exception {
+		FileInputStream fis=new FileInputStream("D:\\iostream\\My.txt");
+		int size=fis.available();
+		byte b[]=new byte[size];
+		fis.read(b);
+		String data=new String(b);
+		System.out.println(data);
+		System.out.println("********************");
+		String[] str=data.split(" ");
+		int word_Count=str.length;
+		System.out.println("No of Words :"+word_Count);
+		int count=0;
+		for(int i=0;i<word_Count;i++)
+		{
+			String val=str[i];
+			if(val.equals("Durga"))
+			{
+				count=count+1;
+			}
+			
+		}
+		System.out.println("Durga is repeated :"+count);
+	}
+
+}

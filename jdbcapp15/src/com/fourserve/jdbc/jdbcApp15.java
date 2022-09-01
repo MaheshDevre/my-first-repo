@@ -1,0 +1,56 @@
+package com.fourserve.jdbc;
+
+import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class jdbcApp15 {
+
+	public static void main(String[] args) {
+		Connection con=null;
+		Statement st=null;
+		ResultSet rs=null;
+		FileOutputStream fos=null;
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			con=DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe", "system", "mahesh");
+			
+			st=con.createStatement();
+			rs=st.executeQuery("select * from emp1");
+			String data="";
+			data=data+ "ENO,ENAME,ESAL,EADDR\n";
+			while(rs.next())
+			{
+				data=data+rs.getInt("ENO") + ",";
+				data=data+rs.getString("ENAME") + ",";
+				data=data+rs.getFloat("ESAL") + ",";
+				data=data+rs.getString("EADDR") + "\n";
+				
+			}
+			
+			fos=new FileOutputStream("D:\\iostream\\mno.txt");
+			byte[] b=data.getBytes();
+			fos.write(b);
+			System.out.println("emp1 table data transfered to D:\\\\iostream\\\\mno.txt");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			try {
+				con.close();
+	    		st.close();
+	    		rs.close();
+	    		fos.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

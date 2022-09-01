@@ -1,0 +1,40 @@
+package com.fourserve.jdbc;
+
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class jdbcApp02 {
+
+	public static void main(String[] args) {
+		Connection con=null;
+		Statement st=null;
+		try
+		{
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			con=DriverManager.getConnection
+					("jdbc:oracle:thin@localhost:1521:xe", "system", "mahesh");
+			st=(Statement) con.createStatement();
+			String query="create table emp1(ENO number primary key, ENAME varchar2(10),ESAL float,EADDR varchar2(10))";
+			((java.sql.Statement) st).executeUpdate(query);
+			System.out.println("table emp1 created successfully");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				((Connection) st).close();
+				con.close();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

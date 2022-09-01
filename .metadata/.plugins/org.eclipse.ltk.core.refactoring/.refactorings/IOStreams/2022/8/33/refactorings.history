@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;NagoorBabu.Externalizable&apos; to &apos;ExternalizableEx&apos;&#x0D;&#x0A;- Original project: &apos;IOStreams&apos;&#x0D;&#x0A;- Original element: &apos;NagoorBabu.Externalizable&apos;&#x0D;&#x0A;- Renamed element: &apos;NagoorBabu.ExternalizableEx&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Externalizable&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;NagoorBabu{Externalizable.java[Externalizable" matchStrategy="1" name="ExternalizableEx" qualified="false" references="true" similarDeclarations="false" stamp="1659944039541" textual="false" version="1.0"/>
+</session>

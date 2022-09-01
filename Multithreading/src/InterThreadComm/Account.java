@@ -1,0 +1,37 @@
+package InterThreadComm;
+
+public class Account {
+	double balance=10000.00;
+	
+	synchronized public double withdraw(double wamt)
+	{
+		System.out.println("Withdraw process start");
+		System.out.println("Balance before withdraw "+balance);
+		if(balance<wamt)
+		{
+			System.out.println("Sorry Insufficient balance waiting for Deposit");
+			try {
+				wait(10000);
+			} catch (InterruptedException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		balance=balance-wamt;
+		System.out.println("after withdraw "+balance);
+		return wamt;
+		
+		
+	}
+	
+	synchronized public void deposit(double damt)
+	{
+		System.out.println();
+		System.out.println("Deposit process start");
+		System.out.println("Balance before deposit "+balance);
+		balance=balance+damt;
+		System.out.println("Balance after deposit "+damt);
+		notify();
+	}
+
+}

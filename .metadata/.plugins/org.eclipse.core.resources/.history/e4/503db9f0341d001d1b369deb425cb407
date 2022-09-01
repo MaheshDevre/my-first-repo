@@ -1,0 +1,61 @@
+package ThreadPrority;
+
+public class TreadGroup {
+	public static void main(String[] args) throws Exception
+	{
+		//we should understand that the following statements are executed by the main thread
+	
+		Reservation res=new Reservation();
+		Cancellation can=new Cancellation();
+
+		//create a Thread group with name
+		ThreadGrouptg=new ThreadGroup("First Group");
+
+		//create 2 threads and addhtem to First Group
+		Thread  t1 = new  Thread(tg, res, "First thread");
+		Thread  t2 = new  Thread(tg, res, "Second thread");
+
+		//create another thread group tg1 as a child to tf
+		ThreadGroup tg1 = new ThreadGroup(tg, "Second Group");
+
+		//create 2 threads and add them to Second group
+		Thread  t3 = new  Thread(tg1, can, "Third thread");
+		Thread  t4 = new  Thread(tg1, can, "Fourth thread");
+
+		//find parent group of tg1
+		System.out.println("Parent of tg1= "+tg1.getParent());
+
+		//set maximum priority to tg1 as 7
+		tg1.setMaxPriority(7);
+
+		//know the thread group of t1 and t3
+		System.out.println("Thread group of t1= "+t1.getThreadGroup());
+		System.out.println("Thread group of t3= "+t3.getThreadGroup());
+
+		//start the threads
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
+
+		//find how many threads are actively running
+		System.out.println("No of threads active in tg = "+tg.activeCount());
+	}
+
+
+}
+class Reservation extends Thread
+{
+	public void run()
+	{
+		System.out.println(" I am reservation thread ");
+	}
+}
+class Cancellation extends Thread
+{
+	public void run()
+	{
+		System.out.println("I am cancellation thread");
+	}
+}
+

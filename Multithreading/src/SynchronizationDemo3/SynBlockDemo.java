@@ -1,0 +1,18 @@
+package SynchronizationDemo3;
+
+import SynchronizationDemo.Display;
+import SynchronizationDemo.MyThread;
+
+public class SynBlockDemo {
+	public static void main(String[] args) {
+		Display d=new Display();
+		
+		MyThread t1=new MyThread(d,"Dhoni");
+		MyThread t2=new MyThread(d,"Yuuraj");
+		t1.start();
+		t2.start();
+		
+	}
+	
+
+}

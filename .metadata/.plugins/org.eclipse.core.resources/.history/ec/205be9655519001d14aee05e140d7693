@@ -1,0 +1,43 @@
+package InterThreadComm;
+class Customer{    
+int amount=10000;    
+    
+synchronized int withdraw(int wamt){  
+	System.out.println("Amount before withdraw");
+    System.out.println("going to withdraw...");    
+    
+if(wamt<amount)
+{    
+System.out.println("Less balance; waiting for deposit...");    
+try{
+	wait();
+   }catch(Exception e){}    
+}    
+ 
+System.out.println("withdraw completed...");    
+}    
+    
+synchronized void deposit(int amount){    
+System.out.println("going to deposit...");    
+this.amount+=amount;    
+System.out.println("deposit completed... ");    
+notify();    
+}    
+}    
+
+public class ITCDemo {
+	public static void main(String args[]){    
+		final Customer c=new Customer();    
+		new Thread(){    
+		public void run(){
+			c.withdraw(15000);
+		}    
+		}.start();    
+		new Thread(){    
+		public void run()
+		{
+			c.deposit(10000);
+		}    
+		}.start();    
+
+}}

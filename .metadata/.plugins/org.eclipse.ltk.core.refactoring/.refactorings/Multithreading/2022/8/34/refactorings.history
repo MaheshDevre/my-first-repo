@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ThreadPrority.TreadGroup&apos; to &apos;TGroup&apos;&#x0D;&#x0A;- Original project: &apos;Multithreading&apos;&#x0D;&#x0A;- Original element: &apos;ThreadPrority.TreadGroup&apos;&#x0D;&#x0A;- Renamed element: &apos;ThreadPrority.TGroup&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TreadGroup&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;ThreadPrority{TreadGroup.java[TreadGroup" matchStrategy="1" name="TGroup" qualified="false" references="true" similarDeclarations="false" stamp="1660634873364" textual="false" version="1.0"/>
+</session>

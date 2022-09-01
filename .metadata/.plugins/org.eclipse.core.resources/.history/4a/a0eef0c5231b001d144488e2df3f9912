@@ -1,0 +1,5 @@
+package com.fourserve.dao;
+
+public interface StudentDao {
+
+}

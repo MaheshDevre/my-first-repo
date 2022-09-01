@@ -1,0 +1,17 @@
+package NagoorBabu;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FileOutputStreamEx {
+
+	public static void main(String[] args) throws Exception {
+		FileOutputStream fos=new FileOutputStream("C:\\Users\\admin\\eclipse-workspace\\IOStreams\\abc.text",true);
+		String data="I am Mahesh";
+		byte[] b=data.getBytes();
+		fos.write(b);
+		fos.close();
+	}
+
+}

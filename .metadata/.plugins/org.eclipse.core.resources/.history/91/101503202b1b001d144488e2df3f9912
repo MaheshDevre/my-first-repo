@@ -1,0 +1,5 @@
+package com.fourserve.dto;
+
+public class Student {
+
+}

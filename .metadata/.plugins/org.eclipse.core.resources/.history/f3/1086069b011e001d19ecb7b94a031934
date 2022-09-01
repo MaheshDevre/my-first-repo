@@ -1,0 +1,31 @@
+package FileClassEx;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FileEx {
+
+	public static void main(String[] args) throws IOException {
+		File f=new File("D:\\iostream\\fsg.txt");
+		System.out.println(f.isFile());
+		f.createNewFile();
+		System.out.println(f.isFile());
+		System.out.println(f.getName());
+		System.out.println(f.getParent());
+		System.out.println(f.getAbsolutePath());
+		FileOutputStream fos=new FileOutputStream(f);
+		String data="Four Serve Global";
+		byte[] b=data.getBytes();
+		fos.write(b);
+		System.out.println("Data transfered to"+f.getAbsolutePath());
+		FileInputStream fis=new FileInputStream(f);
+		int size=fis.available();
+		byte[] bt=new byte[size];
+		fis.read(bt);
+		String data1=new String(bt);
+		System.out.println(data1);
+	}
+
+}

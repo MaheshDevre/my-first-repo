@@ -1,0 +1,83 @@
+package InterThreadComm;
+
+public class Communicate1 {
+	public static void main(String[] args)throws Exception
+	{
+	
+	Producer1 obj1=new Producer1();
+	//pass Producer object to Consumer so that it is then available to consumer
+	Consumer1 obj2=new Consumer1(obj1);
+
+	//create 2 threads and attach to Producer and Consumer
+	Thread t1=new Thread(obj1);
+	Thread t2=new Thread(obj2);
+
+	//Run the threads
+	t1.start(); //Producer starts production
+	t2.start(); //Consumer waits
+	}
+
+
+}
+class Producer extends Thread
+{
+//to add data, we use string buffer object
+StringBuffer sb;
+
+//dataprodover will be true when data productio is over
+//boolean dataprodover = false;
+Producer()
+{
+sb=new StringBuffer(); //allot memory
+}
+
+public void run()
+{
+synchronized(sb)
+{
+//go on appending data (numbers) to string buffer
+for(int i=1; i<=10; i++)
+{
+try
+{
+sb.append(i+" : ");
+Thread.sleep(100);
+System.out.println("appending");
+}
+catch(Exception e)
+{
+}
+}
+//data production is over, so notify to Consumer thread
+sb.notify();
+   }
+}
+
+}
+class Consumer1 extends Thread
+{
+//create Producer reference to refer to Producer object from Consumer class
+Producer prod;
+
+Consumer1(Producer1 prod)
+{
+this.prod=prod;
+}
+
+public void run()
+{
+//if dta productin is not over, sleep for 10 miliseconds and check
+//again, Here there is a time delay fo several milliseconds to receive dta
+/*try
+{
+while(!prod.dataprodover)
+Thread.sleep(10);
+}
+catch(Exception e)
+{
+}*/
+//when data production is over, display data of StringBuffer 
+System.out.println(prod.sb);
+}
+}
+
